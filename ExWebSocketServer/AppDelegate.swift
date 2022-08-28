@@ -14,7 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Insert code here to initialize your application
+    guard let server = try? WebSocketServer(port: 8080) else { return }
+    server.startServer()
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {
